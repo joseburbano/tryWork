@@ -1,0 +1,20 @@
+mixin crearUsuario(usuario = {})
+
+    form.agregar-proyecto(action=`/api/v1/nuevo-usuario/${usuario.id || ''}` method="POST")
+                .campo
+                    label(for="cedula") Cedula:
+                    input(value=usuario.cedula type="text" id="cedula" name="cedula" placeholder="Digite Tus Cedula")
+                .campo
+                    label(for="nombres") Nombres:
+                    input(value=usuario.nombres type="text" id="nombres" name="nombres" placeholder="Digite Tus Nombres")
+                .campo
+                    label(for="apellidos") Apellidos:
+                    input(value=usuario.apellidos type="text" id="apellidos" name="apellidos" placeholder="Digite Tus Apellidos")
+                .campo
+                    label(for="telefono") Teléfono:
+                    input(value=usuario.telefono type="tel" id="telefono" name="telefono" placeholder="Digite Tu (Código de área) + Numero")
+                .campo
+                    label(for="profesion") Profesión:
+                    input(value=usuario.profesion type="text" id="profesion" name="profesion" placeholder="Digite su profesión")
+                .campo.enviar
+                    input(type="submit" value=`${usuario.nombres ? 'Guardar' : 'Agregar'}` class="boton")

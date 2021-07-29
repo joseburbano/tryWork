@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/normalize.css")
+        link(rel="stylesheet", href="/css/app.css")
+        title #{nombrePagina}
+    body 
+        header.barra
+            h1 TryWork - Administrator
+    
+    main.contenedor
+        aside.contenedor-proyectos
+            .panel.crear-proyecto 
+                a(href="/nuevo-usuario" class="boton") Nuevo Usuario 
+                    span +
+            .panel.lista-poyectos 
+                h2 Usuarios
+                ul#proyectos.proyecto
+                    if(usuarios.length)
+                        each usuario in usuarios
+                            li 
+                                a(href=`/api/v1/usuarios/${usuario.url}`)= usuario.nombres
+
+        block contenido
+
+
+    script(src="/dist/bundle.js")

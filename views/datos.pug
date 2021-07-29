@@ -1,0 +1,16 @@
+extends layout 
+
+block contenido
+    .contenido-principal
+        h1 #{nombrePagina} - #{usuario.nombres}
+
+        //TODO - FORMULARIO
+
+
+        //TODO - Listado Pendientes
+
+
+        //Acciones que se pueden realizar 
+        .contenedor-acciones
+            a(href=`/api/v1/usuario/editar/${usuario.id}` class="boton") Editar Usuario 
+            button#eliminar-usuario(data-usuario-url=usuario.url type="button" class="boton eliminar") Eliminar Usuario
